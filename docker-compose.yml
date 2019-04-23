@@ -1,0 +1,26 @@
+
+
+version: '3'
+
+services:
+  squid:
+
+    environment:
+      - SQUID_PORT=3128
+      # - SQUID_CONFIG_FILE=squid.base.conf
+      - SQUID_USERNAME=username
+      - SQUID_PASSWORD=password
+    
+    build: .
+
+    # args:
+    #     some_variable_name: a_value
+    image: formovie/squid-auth-hide
+    volumes:
+      - /var/log/squid3
+    ports:
+      - "3128:3128"
+    entrypoint: ["/init"] 
+
+
+      
