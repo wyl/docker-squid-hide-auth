@@ -12,6 +12,8 @@ services:
       - SQUID_PASSWORD=password
     
     build: .
+    
+    restart: always
 
     # args:
     #     some_variable_name: a_value
