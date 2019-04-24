@@ -1,32 +1,22 @@
-squid-docker-simple-auth
-========================
 
-A simple (and fragile) Dockerfile for launching an authenticated squid proxy.
+docker-squid-hide-auth
+=====================
+
+使用Dockerfile 创建一个简单的需要认证的squid http proxy。
 
 The user must specify authentication credentials via the following environment variables:
 
 ```
-SQUID_USERNAME=foo
-SQUID_PASSWORD=bar
+SQUID_PORT=3128
+SQUID_CONFIG_FILE=squid.base.conf
+SQUID_USERNAME=name
+SQUID_PASSWORD=password
 ```
-
-An example invocation would be:
-
-```
-docker run -e SQUID_USERNAME=foo -e SQUID_PASSWORD=bar -p 3128:3128 robhaswell/squid-authenticated
-```
-
-With some added performance improvements and transparency settings.
-Latest version of Squid.
-
-Uses Alpine Linux.
-
-Details
-=======
 
 Environment variables
 ---------------------
-
+* SQUID_PORT
+* SQUID_CONFIG_FILE
 * SQUID_USERNAME
 * SQUID_PASSWORD
 
@@ -39,12 +29,15 @@ Volumes
 -------
 
 * `/var/log/squid`
-
-Ideas for Improvement
+  
+  Ideas for Improvement
 =====================
 * Output logs to stdout.
+* 
 
-  
-curl -x http://username:password@localhost:3128 http://ipinfo.io/ip -v
+Test
+-------
+
+curl -x http://user:password@localhost:3128 http://ipinfo.io/ip -v
 
 
