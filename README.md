@@ -30,8 +30,11 @@ Volumes
 
 * `/var/log/squid`
   
-  Ideas for Improvement
+
+
+Ideas for Improvement
 =====================
+
 * Output logs to stdout.
 * 
 
